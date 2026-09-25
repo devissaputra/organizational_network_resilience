@@ -1,30 +1,158 @@
 # Empirical Study Protocol
 
-## Study
-Organizational Communication Resilience Under Key-Actor Loss
+## Study title
+
+**Organizational Communication Resilience Under Key-Actor Loss**
+
+## Study type
+
+Secondary observational network stress test using a historical organizational email hypergraph.
+
+This document records the released analysis. It is not a preregistration.
 
 ## Research question
-How resilient is potential organizational information access to the loss of highly connected employees compared with random employee loss?
 
-## Design and source
-Secondary observational network analysis of the Enron temporal email hypergraph. The released analysis pins Zenodo record 21909507, dataset version v0.1, DOI 10.5281/zenodo.21909507, and file MD5 `3666af1fc5a190d93f7fd98cff58e283`. Analysis/retrieval date: 2026-09-25.
+How resilient is potential organizational information access to the loss of highly connected communication actors compared with random actor loss?
 
-## Hypotheses
-1. H1: removing high-degree actors reduces normalized global efficiency faster than removing the same number of randomly selected actors.
-2. H2: the targeted-versus-random resilience gap widens as more key actors are removed.
+## Source
 
-## Operationalization and method
-Project each email hyperedge into an undirected employee co-participation graph, compute baseline global efficiency, rank actors by projection degree, then compare degree-targeted removal with 200 seeded random removals at k = 5, 10, 15, 20, and 30. Report retained efficiency relative to the intact network.
+email-enron temporal hypergraph, XGI / Zenodo.
 
-Global efficiency is the primary resilience operationalization in this release. It captures shortest-path accessibility among surviving nodes; it does not by itself measure all dimensions of organizational resilience.
+Released source identity:
 
-## Primary empirical result
-Targeted removal progressively lowers normalized global efficiency while same-count random removal leaves mean efficiency close to baseline. At 30 removals, targeted retained efficiency is 0.8608 versus 0.9912 under random removal.
+- version v0.1;
+- DOI 10.5281/zenodo.21909507;
+- file `email-enron.json`;
+- MD5 `3666af1fc5a190d93f7fd98cff58e283`.
 
-Across all five tested removal levels, the targeted retained-efficiency value is below the 5th percentile of the 200-draw random comparator. The targeted-versus-random mean gap widens from 0.0238 at k=5 to 0.1304 at k=30. These are descriptive distributional diagnostics rather than causal or formal inferential claims.
+## Source dimensions
 
-## Validity and claim boundary
-Email connectivity is a proxy for potential information access, not a direct measure of tacit knowledge, expertise, performance, or causal knowledge transfer. The Enron setting limits external validity. Alternative centrality definitions, adaptive re-ranking, directed or weighted projections, and additional resilience metrics are not silently treated as completed analyses.
+- 148 nodes;
+- 10,885 timestamped hyperedges;
+- 26,914 released incidences.
 
-## Reproducibility status
-The repository packages derived results, study-specific analysis functions, deterministic or seeded procedures, a checksum-verified internet rebuild script, and tests for numerical consistency, scientific invariants, and provenance. The released analysis was documented after dataset selection and must not be represented as preregistered.
+## Unit of analysis
+
+Raw unit: timestamped email hyperedge.
+
+Analysis unit: projected communication network under actor removal.
+
+## Projection rule
+
+Each hyperedge is converted into all unique undirected pairwise co-participation ties among its members.
+
+Repeated members within one event are deduplicated.
+
+Repeated co-occurrences across events do not increase edge weight in the released simple graph.
+
+## Baseline
+
+Released projection:
+
+- 148 nodes;
+- 2,583 undirected edges;
+- global efficiency 0.5601.
+
+## Primary resilience metric
+
+Retained global efficiency:
+
+```text
+global efficiency after actor removal
+/
+global efficiency of intact projection
+```
+
+Global efficiency is recomputed on surviving node pairs. Disconnected pairs contribute zero.
+
+A retained-efficiency value above 1 is possible and should not be interpreted as performance above 100%.
+
+## Targeted-removal rule
+
+Rank actors once by degree in the intact projection.
+
+Remove the top k actors for:
+
+```text
+k = 5, 10, 15, 20, 30
+```
+
+This is a static ranking. Actors are not re-ranked after each removal.
+
+## Random comparator
+
+At each k:
+
+- draw 200 same-count random removal sets;
+- seed = 20260925;
+- calculate retained efficiency for every draw;
+- sort the 200 results;
+- report the mean;
+- report the released empirical order-statistic bounds corresponding to positions used for p05 and p95.
+
+## Primary outputs
+
+For every k:
+
+- removal count;
+- removal fraction;
+- targeted retained efficiency;
+- targeted loss from intact ratio;
+- random mean retained efficiency;
+- random mean loss from intact ratio;
+- random p05;
+- random p95;
+- targeted-versus-random mean gap;
+- targeted-versus-random p05 gap;
+- targeted below random p05 flag.
+
+## Released hypotheses
+
+**H1.** Static degree-targeted removal reduces retained global efficiency faster than same-count random removal.
+
+**H2.** The targeted-versus-random mean gap widens across the released removal levels.
+
+These are released descriptive hypotheses and were not preregistered.
+
+## Released result
+
+Targeted retained efficiency:
+
+```text
+0.9735 → 0.9465 → 0.9245 → 0.8986 → 0.8608
+```
+
+Random mean:
+
+```text
+0.9973 → 0.9970 → 0.9968 → 0.9960 → 0.9912
+```
+
+The targeted result is below the released random p05 at every tested k.
+
+## Construct boundary
+
+Email connectivity is treated as a proxy for potential information access.
+
+The study does not measure:
+
+- tacit knowledge;
+- expertise;
+- trust;
+- learning quality;
+- knowledge accuracy;
+- employee performance;
+- causal knowledge transfer.
+
+## Scope boundary
+
+The release uses:
+
+- one historical organization;
+- one hypergraph-to-simple-graph projection;
+- one centrality targeting rule;
+- one resilience metric;
+- one static ranking;
+- one set of five stress levels.
+
+Alternative specifications are future sensitivity extensions, not hidden completed analyses.
