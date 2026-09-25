@@ -22,7 +22,7 @@ Using the Enron email hypergraph, the study shows that static removal of highly 
 
 ## Draft abstract
 
-Organizations can lose communication continuity when central actors leave, but headcount loss alone does not capture the structural consequences of who becomes unavailable. This study evaluates communication-network resilience using the Enron temporal email hypergraph distributed through XGI and Zenodo. The released source contains 148 nodes and 10,885 timestamped email hyperedges. Hyperedges are projected into an undirected simple co-participation graph with 2,583 edges and baseline global efficiency of 0.5601. Actors are ranked once by projection degree, and static targeted removal is compared with 200 seeded same-count random removal draws at k = 5, 10, 15, 20, and 30. Targeted retained efficiency declines monotonically from 0.9735 at k = 5 to 0.8608 at k = 30, while the random mean remains between 0.9912 and 0.9973. The targeted-versus-random mean gap widens from 0.0238 to 0.1304, and the targeted result lies below the released random 5th-percentile order-statistic bound at all five stress levels. The findings indicate structural dependence on highly connected actors under the released network operationalization. The paper interprets this as a diagnostic signal for knowledge-continuity investigation rather than direct evidence of tacit knowledge, expertise, employee value, or causal organizational performance loss.
+Organizations can lose communication continuity when central actors leave, but headcount loss alone does not capture the structural consequences of who becomes unavailable. This study evaluates communication-network resilience using the Enron temporal email hypergraph distributed through XGI and Zenodo. The released source contains 148 nodes and 10,885 timestamped email hyperedges. Hyperedges are projected into an undirected simple co-participation graph with 2,583 edges and baseline global efficiency of 0.5601. Actors are ranked once by projection degree, and static targeted removal is compared with 200 version-stable same-count comparator draws at k = 5, 10, 15, 20, and 30. Targeted retained efficiency declines monotonically from 0.9735 at k = 5 to 0.8608 at k = 30, while the random mean remains between 0.9917 and 0.9978. The targeted-versus-random mean gap widens from 0.0243 to 0.1309, and the targeted result lies below the released random 5th-percentile order-statistic bound at all five stress levels. The findings indicate structural dependence on highly connected actors under the released network operationalization. The paper interprets this as a diagnostic signal for knowledge-continuity investigation rather than direct evidence of tacit knowledge, expertise, employee value, or causal organizational performance loss.
 
 ## Introduction logic
 
@@ -129,7 +129,7 @@ Show targeted curve and random comparator band.
 Report:
 
 ```text
-0.0238 → 0.0505 → 0.0723 → 0.0974 → 0.1304
+0.0243 → 0.0506 → 0.0726 → 0.0968 → 0.1309
 ```
 
 ### 4. Lower-tail diagnostic
@@ -142,12 +142,12 @@ At removal of 30 actors:
 
 - removal share = 20.3%;
 - targeted retained efficiency = 0.8608;
-- random mean = 0.9912;
-- random p05 = 0.9606;
-- random p95 = 1.0288;
-- gap vs random mean = 0.1304.
+- random mean = 0.9917;
+- random p05 = 0.9572;
+- random p95 = 1.0304;
+- gap vs random mean = 0.1309.
 
-Do not translate 0.1304 into an equivalent business-performance loss.
+Do not translate 0.1309 into an equivalent business-performance loss.
 
 ## Discussion
 
