@@ -13,7 +13,7 @@ How resilient is potential organizational information access to the loss of high
 - 2,583-edge undirected simple projection;
 - global-efficiency resilience metric;
 - static degree-targeted removal;
-- 200 seeded random comparators;
+- 200 version-stable deterministic pseudo-random comparators;
 - five removal levels.
 
 ## Main result
