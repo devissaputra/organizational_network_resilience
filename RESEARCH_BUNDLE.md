@@ -21,8 +21,8 @@ How resilient is potential organizational information access to the loss of high
 At k = 30:
 
 - targeted retained efficiency = 0.8608;
-- random mean retained efficiency = 0.9912;
-- gap = 0.1304.
+- random mean retained efficiency = 0.9917;
+- gap = 0.1309.
 
 Targeted retained efficiency lies below the random p05 at all five released stress levels.
 
