@@ -59,8 +59,9 @@ The ranking is static rather than adaptive.
 
 For every k:
 
-- draw 200 random same-count actor sets;
-- use seed 20260925;
+- construct 200 deterministic pseudo-random same-count actor sets;
+- rank nodes by SHA-256 of seed, removal level, draw index, and node ID;
+- use release seed 20260925;
 - compute retained efficiency for each draw;
 - sort the draw values;
 - report the mean;
