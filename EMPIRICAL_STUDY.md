@@ -125,7 +125,7 @@ Targeted retained efficiency:
 Random mean:
 
 ```text
-0.9973 → 0.9970 → 0.9968 → 0.9960 → 0.9912
+0.9978 → 0.9970 → 0.9971 → 0.9954 → 0.9917
 ```
 
 The targeted result is below the released random p05 at every tested k.
