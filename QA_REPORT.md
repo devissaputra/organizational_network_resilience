@@ -32,6 +32,7 @@ The source page describes one connected component of 143 nodes and five isolates
 | Baseline global efficiency | 0.5601 | PASS |
 | Random draws per k | 200 | PASS |
 | Seed | 20260925 | PASS |
+| Comparator generation | SHA-256 rank sampling | PASS |
 | Removal levels | 5, 10, 15, 20, 30 | PASS |
 
 ## Stress-curve verification
@@ -63,6 +64,12 @@ The released package verifies that:
 - the random p05, mean, and p95 ordering is valid;
 - the final gap is 0.1309;
 - all CSV and JSON headline values agree.
+
+## Reproducibility defect detected and corrected
+
+The hardened Zenodo rebuild exposed a release-integrity problem in the earlier comparator implementation: a fixed seed passed to Python `random.sample` did not guarantee the exact same sample sets across supported runtimes. The source data, projection, degree-targeted removals, and targeted resilience curve were unaffected.
+
+The comparator has been rebuilt using a deterministic SHA-256 ranking rule keyed by seed, removal level, draw index, and node ID. All comparator means, p05/p95 diagnostics, gaps, figures, tests, and documentation are synchronized to the corrected curve.
 
 ## Scientific presentation improvements
 
