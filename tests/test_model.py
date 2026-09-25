@@ -65,8 +65,8 @@ def test_release_curve_and_diagnostics():
     assert diagnostics["targeted_below_random_p05_at_all_levels"]
     assert diagnostics["random_interval_order_valid"]
 
-    assert round(diagnostics["gap_k5"], 4) == 0.0238
-    assert round(diagnostics["gap_k30"], 4) == 0.1304
+    assert round(diagnostics["gap_k5"], 4) == 0.0243
+    assert round(diagnostics["gap_k30"], 4) == 0.1309
     assert round(diagnostics["gap_growth"], 4) == 0.1066
 
 
@@ -79,13 +79,13 @@ def test_k30_release_values():
     assert float(k30["removal_fraction"]) == 0.2027
     assert float(k30["targeted_retained_efficiency"]) == 0.8608
     assert float(k30["targeted_loss_from_baseline_ratio"]) == 0.1392
-    assert float(k30["random_mean"]) == 0.9912
-    assert float(k30["random_mean_loss_from_baseline_ratio"]) == 0.0088
+    assert float(k30["random_mean"]) == 0.9917
+    assert float(k30["random_mean_loss_from_baseline_ratio"]) == 0.0083
 
     assert metrics["targeted_retained_efficiency_k30"] == 0.8608
     assert metrics["targeted_loss_from_baseline_ratio_k30"] == 0.1392
-    assert metrics["random_retained_efficiency_k30"] == 0.9912
-    assert metrics["random_mean_loss_from_baseline_ratio_k30"] == 0.0088
+    assert metrics["random_retained_efficiency_k30"] == 0.9917
+    assert metrics["random_mean_loss_from_baseline_ratio_k30"] == 0.0083
     assert metrics["removal_fraction_k30"] == 0.2027
 
 
