@@ -12,11 +12,11 @@ The analysis projects those hyperedges into an undirected employee co-participat
 
 **How much does network-level communication accessibility decline when highly connected actors are removed, compared with removing the same number of actors at random?**
 
-The baseline projection contains 2,583 undirected edges and has global efficiency 0.5601. Actors are ranked once by degree in the intact projection. Static degree-targeted removal is then compared with 200 seeded same-count random removal draws at k = 5, 10, 15, 20, and 30.
+The baseline projection contains 2,583 undirected edges and has global efficiency 0.5601. Actors are ranked once by degree in the intact projection. Static degree-targeted removal is then compared with 200 version-stable same-count comparator draws at k = 5, 10, 15, 20, and 30.
 
-At every tested removal level, targeted removal produces lower retained global efficiency than the 5th percentile of the random comparator. At k = 5, targeted retained efficiency is 0.9735 versus a random mean of 0.9973. At k = 30, targeted retained efficiency falls to 0.8608 while the random mean remains 0.9912.
+At every tested removal level, targeted removal produces lower retained global efficiency than the 5th percentile of the random comparator. At k = 5, targeted retained efficiency is 0.9735 versus a random mean of 0.9978. At k = 30, targeted retained efficiency falls to 0.8608 while the random mean remains 0.9917.
 
-The targeted-versus-random mean gap therefore increases from 0.0238 at k = 5 to 0.1304 at k = 30.
+The targeted-versus-random mean gap therefore increases from 0.0243 at k = 5 to 0.1309 at k = 30.
 
 This pattern supports a structural vulnerability interpretation: the projected communication network is more sensitive to the loss of highly connected actors than to same-count random actor loss under this operationalization.
 
@@ -133,11 +133,11 @@ The random comparator is descriptive. It is not presented as a causal design or 
 
 | Actors removed | Removed share | Targeted retained efficiency | Random mean | Random 5th percentile | Random 95th percentile | Gap vs random mean |
 |---:|---:|---:|---:|---:|---:|---:|
-| 5 | 3.4% | 0.9735 | 0.9973 | 0.9860 | 1.0101 | 0.0238 |
-| 10 | 6.8% | 0.9465 | 0.9970 | 0.9808 | 1.0139 | 0.0505 |
-| 15 | 10.1% | 0.9245 | 0.9968 | 0.9761 | 1.0221 | 0.0723 |
-| 20 | 13.5% | 0.8986 | 0.9960 | 0.9710 | 1.0197 | 0.0974 |
-| 30 | 20.3% | 0.8608 | 0.9912 | 0.9606 | 1.0288 | 0.1304 |
+| 5 | 3.4% | 0.9735 | 0.9978 | 0.9870 | 1.0115 | 0.0243 |
+| 10 | 6.8% | 0.9465 | 0.9970 | 0.9807 | 1.0168 | 0.0506 |
+| 15 | 10.1% | 0.9245 | 0.9971 | 0.9746 | 1.0226 | 0.0726 |
+| 20 | 13.5% | 0.8986 | 0.9954 | 0.9716 | 1.0231 | 0.0968 |
+| 30 | 20.3% | 0.8608 | 0.9917 | 0.9572 | 1.0304 | 0.1309 |
 
 ### Targeted degradation
 
@@ -154,10 +154,10 @@ By k = 30, removing 20.3% of actors from the intact network under the static deg
 The random mean remains close to the intact baseline:
 
 ```text
-0.9973 → 0.9970 → 0.9968 → 0.9960 → 0.9912
+0.9978 → 0.9970 → 0.9971 → 0.9954 → 0.9917
 ```
 
-At k = 30, mean random retained efficiency is still 0.9912.
+At k = 30, mean random retained efficiency is still 0.9917.
 
 The comparison is not that random removal has no effect. Rather, under this metric and these draws, the average structural accessibility among surviving nodes remains much closer to the intact value than under degree-targeted loss.
 
@@ -166,7 +166,7 @@ The comparison is not that random removal has no effect. Rather, under this metr
 The difference between the random mean and targeted retained efficiency is:
 
 ```text
-0.0238 → 0.0505 → 0.0723 → 0.0974 → 0.1304
+0.0243 → 0.0506 → 0.0726 → 0.0968 → 0.1309
 ```
 
 The gap increases at every tested removal level.
@@ -218,7 +218,7 @@ The release supports these descriptive statements:
 - static degree-targeted removal produces a monotonically decreasing retained-efficiency curve;
 - targeted retained efficiency is below the random mean at every tested k;
 - targeted retained efficiency is below the released random 5th percentile at every tested k;
-- the targeted-versus-random mean gap increases from 0.0238 to 0.1304.
+- the targeted-versus-random mean gap increases from 0.0243 to 0.1309.
 
 ### What this study does not support
 
