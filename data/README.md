@@ -1,19 +1,54 @@
-# Data
+# Data Provenance and Derived Evidence
 
-**Primary source:** email-enron temporal hypergraph (XGI / Zenodo)
+## Canonical source
 
-**Dataset version:** v0.1
+**email-enron temporal hypergraph, XGI / Zenodo**
 
-**Source page:** https://zenodo.org/records/21909507
+- version: v0.1
+- DOI: 10.5281/zenodo.21909507
+- published: 2026-08-12
+- file: `email-enron.json`
+- MD5: `3666af1fc5a190d93f7fd98cff58e283`
 
-**DOI:** 10.5281/zenodo.21909507
+## Source description
 
-**Pinned file:** `email-enron.json`
+The dataset contains:
 
-**Pinned MD5:** `3666af1fc5a190d93f7fd98cff58e283`
+- 148 nodes;
+- 10,885 timestamped hyperedges;
+- one connected component of size 143;
+- five isolates.
 
-**Reuse note:** Zenodo marks the record as Open, but the retrieved Rights section does not display a specific license. The raw source file is therefore not redistributed here. Users should retrieve it from the documented source and follow the Zenodo record and original-source terms.
+Nodes are email addresses in a core Enron set.
 
-Derived tables are packaged under `data/derived/`; their columns and completeness are documented in `docs/data_dictionary.md`.
+A hyperedge contains the sender and recipients of an email event.
 
-**Construct boundary:** Email connectivity is a proxy for potential information access, not a direct measure of tacit knowledge, expertise, performance, or causal knowledge transfer. The Enron setting limits external validity.
+## Historical source caveat
+
+The dataset descends from the Enron email corpus, which underwent correction and cleaning after release. The current source also reflects historical deletion and redaction decisions.
+
+## Raw-file policy
+
+The Zenodo record is marked Open, but its displayed Rights section does not show a specific license value.
+
+The repository therefore does not redistribute the raw JSON.
+
+## Packaged derived evidence
+
+`derived/primary_results.csv` contains the complete five-level resilience curve and comparator diagnostics.
+
+## Rebuild
+
+```bash
+python scripts/fetch_and_analyze.py --check
+```
+
+The source rebuild verifies the pinned MD5 before reconstructing the release.
+
+There is no synthetic fallback.
+
+## Construct boundary
+
+Email connectivity is a proxy for potential structural information access.
+
+It is not direct evidence of tacit knowledge, expertise, learning, trust, employee value, or causal performance.
