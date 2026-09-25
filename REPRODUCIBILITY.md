@@ -24,9 +24,11 @@ To regenerate the packaged CSV and JSON outputs after successful checksum verifi
 python scripts/fetch_and_analyze.py --write
 ```
 
-## CI
+## Automated verification
 
 `.github/workflows/ci.yml` runs `pytest -q` and `python run_demo.py` on Python 3.10, 3.11, and 3.12 for pushes and pull requests to `main`.
+
+`.github/workflows/empirical-rebuild.yml` is an on-demand source-to-output verification workflow. It downloads the pinned Zenodo source, regenerates the CSV and JSON outputs, and fails if the regenerated evidence differs from the committed release.
 
 ## Reproducibility boundary
 
