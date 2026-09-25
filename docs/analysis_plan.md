@@ -1,37 +1,115 @@
 # Analysis Plan
 
 ## Status
-This file documents the analysis released in this repository. It is **not a preregistration** and should not be described as one.
 
-## Primary descriptive target
-How resilient is potential organizational information access to the loss of highly connected employees compared with random employee loss?
+This document records the released secondary analysis.
 
-## Primary operationalization
-The release operationalizes communication-network resilience as retained global efficiency among surviving nodes relative to the intact projected network. This is one structural accessibility metric, not a complete measure of organizational resilience.
+It is not a preregistration.
 
-## Analysis
-Project each email hyperedge into an undirected employee co-participation graph, compute baseline global efficiency, rank actors by projection degree, then compare degree-targeted removal with 200 seeded random removals at k = 5, 10, 15, 20, and 30.
+## Primary question
 
-A retained-efficiency ratio slightly above 1 can occur if removing peripheral nodes increases efficiency among surviving nodes. The ratio is therefore not an organizational performance score or a bounded survival fraction.
+How resilient is potential organizational information access to the loss of highly connected communication actors compared with same-count random actor loss?
+
+## Data transformation
+
+1. read the pinned temporal email hypergraph;
+2. retain all 148 nodes;
+3. group incidences by email hyperedge;
+4. deduplicate repeated members inside each hyperedge;
+5. project each hyperedge into all unique undirected pairwise ties;
+6. collapse repeated co-participation into a simple graph.
+
+## Baseline network outputs
+
+Report:
+
+- nodes;
+- hyperedges;
+- incidences;
+- projection edges;
+- intact-network global efficiency.
+
+## Primary resilience operationalization
+
+```text
+retained efficiency =
+efficiency after removal /
+intact-network efficiency
+```
+
+Efficiency is recomputed among surviving nodes.
+
+A value above 1 is mathematically possible and is not treated as performance above 100%.
+
+## Targeted stress test
+
+Rank actors once by degree in the intact projection.
+
+Remove the top k actors for:
+
+```text
+5, 10, 15, 20, 30
+```
+
+Report both actor count and fraction of the 148-node source network.
+
+The ranking is static rather than adaptive.
+
+## Random comparator
+
+For every k:
+
+- draw 200 random same-count actor sets;
+- use seed 20260925;
+- compute retained efficiency for each draw;
+- sort the draw values;
+- report the mean;
+- report released empirical order-statistic p05 and p95 bounds.
+
+These bands are descriptive random-comparator bounds rather than confidence intervals.
+
+## Released outputs
+
+For each k:
+
+1. removal count;
+2. removal fraction;
+3. targeted retained efficiency;
+4. targeted loss from baseline ratio;
+5. random mean retained efficiency;
+6. random mean loss from baseline ratio;
+7. random p05;
+8. random p95;
+9. gap versus random mean;
+10. gap versus random p05;
+11. targeted-below-random-p05 indicator.
 
 ## Released diagnostics
-For every k, report:
-1. targeted retained efficiency;
-2. random mean retained efficiency;
-3. random 5th and 95th percentile order-statistic bounds;
-4. targeted-versus-random mean gap;
-5. targeted-versus-random 5th-percentile gap;
-6. whether targeted retained efficiency falls below the random 5th percentile.
 
-Across the released curve, targeted retained efficiency is below the random 5th percentile at every k. The targeted-versus-random mean gap rises from 0.0238 at k=5 to 0.1304 at k=30.
+The package tests whether:
 
-These are descriptive distributional diagnostics. They are not presented as a causal effect estimate or a preregistered significance test.
+- targeted retained efficiency decreases monotonically;
+- targeted result is below random mean at every k;
+- targeted result is below random p05 at every k;
+- the targeted-versus-random mean gap widens monotonically;
+- random p05 ≤ mean ≤ p95.
 
-## Missingness / exclusions
-All 148 nodes and 10,885 timestamped hyperedges in the published Enron file are included. Repeated recipients within an event are deduplicated for graph projection; no message content, employee role, or knowledge attribute is inferred.
+## Interpretation
 
-## Extensions not included in this release
-Alternative centrality definitions, adaptive re-ranking after each removal, directed or weighted projections, and additional resilience outcomes such as giant-component retention are legitimate follow-up analyses but are not silently represented as completed.
+The primary inferential object is **structural network accessibility**.
 
-## Interpretation boundary
-Email connectivity is a proxy for potential information access, not a direct measure of tacit knowledge, expertise, performance, or causal knowledge transfer. The Enron setting also limits external validity.
+The analysis does not observe tacit knowledge, expertise, trust, learning, employee value, or business performance.
+
+## Extensions not included
+
+Not silently completed in this release:
+
+- adaptive degree re-ranking;
+- betweenness or other centrality targeting;
+- directed projection;
+- weighted projection;
+- temporal stress testing;
+- hypergraph-native resilience metrics;
+- largest-component retention;
+- employee-role analysis;
+- message-content analysis.
