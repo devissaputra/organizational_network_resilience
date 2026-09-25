@@ -1,18 +1,20 @@
 cff-version: 1.2.0
-message: "If you use this empirical research bundle, cite this repository and the primary dataset/source documented in docs/references.md."
+message: "If you use this Learning and Development research package, cite this repository and the primary dataset documented in docs/references.md."
 title: "Organizational Communication Resilience Under Key-Actor Loss"
 type: software
 authors:
   - family-names: Saputra
     given-names: Devis W.
-date-released: 2026-09-25
+version: 1.1.0
+date-released: 2026-09-26
 license: MIT
 repository-code: "https://github.com/devissaputra/organizational_network_resilience"
 keywords:
   - learning-development
   - organizational-learning
-  - network-analysis
-  - resilience
-  - knowledge-management
-  - empirical-study
+  - knowledge-continuity
+  - organizational-network-analysis
+  - network-resilience
+  - enron-email
+  - empirical-research
   - reproducible-research
