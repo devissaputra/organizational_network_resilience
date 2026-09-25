@@ -1,6 +1,6 @@
 # Manifest
 
-Release files (excluding generated test caches):
+Release files excluding generated caches:
 
 - `.github/workflows/ci.yml`
 - `.github/workflows/empirical-rebuild.yml`
@@ -10,10 +10,12 @@ Release files (excluding generated test caches):
 - `EMPIRICAL_STUDY.md`
 - `GITHUB_METADATA.md`
 - `LICENSE`
+- `MANIFEST.md`
 - `Makefile`
 - `PORTFOLIO_TRACK.md`
 - `QA_REPORT.md`
 - `README.md`
+- `REPORT.md`
 - `REPRODUCIBILITY.md`
 - `RESEARCH_BUNDLE.md`
 - `assets/architecture.svg`
@@ -37,4 +39,5 @@ Release files (excluding generated test caches):
 - `results/empirical_summary.json`
 - `run_demo.py`
 - `scripts/fetch_and_analyze.py`
+- `scripts/generate_figures.py`
 - `tests/test_model.py`
