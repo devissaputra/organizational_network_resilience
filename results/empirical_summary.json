@@ -9,7 +9,15 @@
     "targeted_retained_efficiency_k30": 0.8608,
     "random_retained_efficiency_k30": 0.9912
   },
-  "finding": "Targeted removal progressively lowers normalized global efficiency while random removal of the same number of employees leaves mean efficiency close to baseline. At 30 removals, targeted retained efficiency is 0.8608 versus 0.9912 under random removal.",
+  "random_comparator_draws": 200,
+  "seed": 20260925,
+  "robustness_diagnostics": {
+    "targeted_below_random_p05_at_all_levels": true,
+    "gap_vs_random_mean_k5": 0.0238,
+    "gap_vs_random_mean_k30": 0.1304,
+    "gap_growth_k5_to_k30": 0.1066
+  },
+  "finding": "Targeted removal progressively lowers normalized global efficiency while same-count random removal leaves mean efficiency close to baseline. At 30 removals, targeted retained efficiency is 0.8608 versus 0.9912 under random removal.",
   "source": "email-enron temporal hypergraph (XGI / Zenodo)",
   "retrieved": "2026-09-25"
 }
