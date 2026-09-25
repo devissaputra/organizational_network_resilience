@@ -1,35 +1,98 @@
-# Reproducibility
+# Reproducibility Guide
+
+## Objective
+
+The release supports two verification paths:
+
+1. offline validation from packaged derived evidence;
+2. source-to-output reconstruction from the pinned Zenodo dataset.
+
+## Environment
+
+```bash
+python -m pip install -r requirements.txt
+```
 
 ## Offline verification
 
 ```bash
-python -m pip install -r requirements.txt
 pytest -q
 python run_demo.py
+python scripts/generate_figures.py
 ```
 
-Offline tests operate on packaged derived evidence and study-specific functions. They verify the five released removal levels, monotonic targeted degradation, widening targeted-versus-random gaps, percentile ordering, summary/CSV agreement, source-version metadata, and the pinned source checksum.
+The offline suite verifies:
 
-## Full source rebuild
+- graph projection behavior;
+- global-efficiency behavior for connected and disconnected pairs;
+- the fact that retained efficiency may exceed 1 after peripheral removal;
+- exact removal levels;
+- removal fractions;
+- targeted and random loss fields;
+- monotonic targeted degradation;
+- widening targeted-versus-random gaps;
+- targeted values below random mean and p05 at all released levels;
+- random interval ordering;
+- k=30 headline results;
+- source identity and checksum metadata;
+- random-comparator draw count and seed;
+- complete bundle consistency.
+
+## Public-source verification
 
 ```bash
-python scripts/fetch_and_analyze.py
+python scripts/fetch_and_analyze.py --check
 ```
 
-The rebuild retrieves the source recorded in `data/source_manifest.json` and verifies MD5 `3666af1fc5a190d93f7fd98cff58e283` before parsing. If the bytes do not match the pinned release, the script stops rather than silently analyzing a different source state. It contains no synthetic fallback.
+The check:
 
-To regenerate the packaged CSV and JSON outputs after successful checksum verification:
+1. downloads `email-enron.json` from the pinned Zenodo record;
+2. verifies MD5 `3666af1fc5a190d93f7fd98cff58e283`;
+3. reconstructs all 148 source nodes and 10,885 hyperedges;
+4. reconstructs the undirected simple projection;
+5. recomputes baseline global efficiency;
+6. applies the static degree ranking;
+7. reruns 200 seeded random comparators at every k;
+8. reconstructs the complete derived CSV and JSON objects;
+9. requires exact agreement with the packaged release after documented rounding.
+
+There is no synthetic fallback.
+
+## Regenerating release evidence
 
 ```bash
 python scripts/fetch_and_analyze.py --write
+python scripts/generate_figures.py
 ```
 
-## Automated verification
+After regeneration:
 
-`.github/workflows/ci.yml` runs `pytest -q` and `python run_demo.py` on Python 3.10, 3.11, and 3.12 for pushes and pull requests to `main`.
+```bash
+git diff -- data/derived/primary_results.csv results/empirical_summary.json assets/
+```
 
-`.github/workflows/empirical-rebuild.yml` is an on-demand source-to-output verification workflow. It downloads the pinned Zenodo source, regenerates the CSV and JSON outputs, and fails if the regenerated evidence differs from the committed release.
+A clean diff indicates the regenerated evidence and figures match the committed release.
+
+## CI
+
+Regular CI runs:
+
+- tests;
+- packaged bundle validation;
+- scientific figure generation.
+
+The empirical rebuild workflow runs the full Zenodo source check.
+
+## Source identity
+
+- DOI: 10.5281/zenodo.21909507
+- version: v0.1
+- file: `email-enron.json`
+- MD5: `3666af1fc5a190d93f7fd98cff58e283`
+- release retrieval date: 2026-09-25
 
 ## Reproducibility boundary
 
-External hosting can change or become unavailable. The manifest therefore records the source identity, DOI, dataset version, retrieval date, direct file identity, checksum, and reuse note. Derived results in this release correspond to the pinned source state analyzed on 2026-09-25.
+Reproducibility confirms this computational operationalization of the pinned source.
+
+It does not validate email connectivity as a direct knowledge measure, prove causal knowledge loss, or establish external validity beyond the historical Enron setting.
