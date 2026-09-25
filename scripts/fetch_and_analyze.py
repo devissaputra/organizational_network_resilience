@@ -169,7 +169,7 @@ def analyze(data):
             "Static degree-targeted actor loss reduces retained global efficiency "
             "much more strongly than same-count random loss under the released "
             "Enron communication-network projection. At 30 removals, targeted "
-            "retained efficiency is 0.8608 versus a random mean of 0.9912, and "
+            "retained efficiency is 0.8608 versus a random mean of 0.9917, and "
             "the targeted result remains below the random 5th-percentile "
             "order-statistic bound."
         ),
