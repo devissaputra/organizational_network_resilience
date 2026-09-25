@@ -1,23 +1,50 @@
-# Research Bundle Definition
+# Research Package Definition
 
-This repository is treated as a research bundle because it links one explicit research question to a named empirical source, a documented operationalization, executable analysis code, derived evidence, reproducibility checks, visual evidence, validity boundaries, and a paper-ready interpretation path.
+This repository qualifies as a Learning and Development research package because one explicit knowledge-continuity question is connected to a named empirical source, a documented network operationalization, complete derived evidence, reproducible stress testing, a seeded comparator, scientific figures, executable validation, source integrity checks, and bounded organizational interpretation.
 
-## Question
-How resilient is potential organizational information access to the loss of highly connected employees compared with random employee loss?
+## Core question
+
+How resilient is potential organizational information access to the loss of highly connected communication actors compared with same-count random actor loss?
 
 ## Empirical core
-Network global-efficiency stress test with static degree-targeted node removal and a 200-draw seeded same-count random comparator.
+
+- 148-node Enron temporal email hypergraph;
+- 10,885 timestamped hyperedges;
+- 2,583-edge undirected simple projection;
+- global-efficiency resilience metric;
+- static degree-targeted removal;
+- 200 seeded random comparators;
+- five removal levels.
 
 ## Main result
-Targeted removal progressively lowers normalized global efficiency while same-count random removal leaves mean efficiency close to baseline. At 30 removals, targeted retained efficiency is 0.8608 versus 0.9912 under random removal.
 
-Across all five tested removal levels, the targeted retained-efficiency value is below the random 5th percentile. The targeted-versus-random mean gap widens from 0.0238 at k=5 to 0.1304 at k=30.
+At k = 30:
 
-## Source integrity
-The release pins Zenodo dataset version v0.1, DOI 10.5281/zenodo.21909507, and source-file MD5 `3666af1fc5a190d93f7fd98cff58e283`. The full rebuild stops if the downloaded bytes do not match the pinned source.
+- targeted retained efficiency = 0.8608;
+- random mean retained efficiency = 0.9912;
+- gap = 0.1304.
 
-## Boundary
-Email connectivity is a proxy for potential information access, not a direct measure of tacit knowledge, expertise, performance, or causal knowledge transfer. Global efficiency is one structural operationalization rather than a complete organizational-resilience measure. The Enron setting also limits external validity.
+Targeted retained efficiency lies below the random p05 at all five released stress levels.
+
+## L&D contribution
+
+The package operationalizes a narrow form of structural knowledge-continuity exposure.
+
+It can motivate investigation of succession coverage, cross-training, documentation, mentoring redundancy, communities of practice, and access to expertise.
+
+It does not directly identify knowledge holders or prescribe interventions.
 
 ## Release criterion
-A release passes only if source provenance, pinned file identity, code, derived tables, JSON summary, README claims, tests, and documented interpretation agree numerically and semantically. Normal CI validates the packaged bundle; the manual empirical-rebuild workflow verifies source-to-output regeneration.
+
+PASS requires agreement among:
+
+- source identity and checksum;
+- graph counts;
+- complete derived curve;
+- JSON summary;
+- model diagnostics;
+- tests;
+- reproducible figures;
+- README and scientific report;
+- source-to-release rebuild;
+- claim boundaries.
