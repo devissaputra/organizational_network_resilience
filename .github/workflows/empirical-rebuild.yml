@@ -1,6 +1,8 @@
-name: Empirical rebuild
+name: Zenodo empirical rebuild
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -9,6 +11,7 @@ permissions:
 jobs:
   rebuild:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Check out repository
@@ -24,8 +27,5 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Rebuild from pinned Zenodo source
-        run: python scripts/fetch_and_analyze.py --write
-
-      - name: Confirm regenerated evidence matches the release
-        run: git diff --exit-code -- data/derived/primary_results.csv results/empirical_summary.json
+      - name: Verify pinned Zenodo source and released evidence
+        run: python scripts/fetch_and_analyze.py --check
