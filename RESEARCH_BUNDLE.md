@@ -1,6 +1,6 @@
 # Research Package Definition
 
-This repository qualifies as a Learning and Development research package because one explicit knowledge-continuity question is connected to a named empirical source, a documented network operationalization, complete derived evidence, reproducible stress testing, a seeded comparator, scientific figures, executable validation, source integrity checks, and bounded organizational interpretation.
+This repository qualifies as a Learning and Development research package because one explicit knowledge-continuity question is connected to a named empirical source, a documented network operationalization, complete derived evidence, reproducible stress testing, a version-stable SHA-256-ranked deterministic pseudo-random comparator, scientific figures, executable validation, source integrity checks, and bounded organizational interpretation.
 
 ## Core question
 
