@@ -1,12 +1,12 @@
 # Portfolio Track
 
 **Track:** Learning & Development Research  
+**Public presentation:** Learning & Development Research  
 **Repository:** `organizational_network_resilience`  
-**Focus:** Organizational Learning / Knowledge Resilience / Network Analysis
+**Focus:** Organizational Learning / Knowledge Continuity / Organizational Network Analysis
 
-This classification is part of an eight-repository empirical research portfolio with an intentional 4+4 split:
+This repository belongs to the Learning & Development Research track.
 
-- **4 repositories:** Learning & Development Research
-- **4 repositories:** Engineering Management Research
+Its central decision problem is how organizations can diagnose structural knowledge-continuity exposure when highly connected communication actors become unavailable.
 
-This repository belongs only to **Learning & Development Research** for portfolio indexing and GitHub presentation. Its methods may draw on adjacent disciplines, but that does not change its primary portfolio track.
+The repository does not classify people as valuable or replaceable. It treats communication topology as one source of evidence for deciding where further L&D and knowledge-management investigation may be useful.
