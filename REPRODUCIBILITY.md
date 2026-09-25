@@ -52,7 +52,7 @@ The check:
 4. reconstructs the undirected simple projection;
 5. recomputes baseline global efficiency;
 6. applies the static degree ranking;
-7. reruns 200 seeded random comparators at every k;
+7. reruns 200 version-stable deterministic pseudo-random comparators at every k;
 8. reconstructs the complete derived CSV and JSON objects;
 9. requires exact agreement with the packaged release after documented rounding.
 
