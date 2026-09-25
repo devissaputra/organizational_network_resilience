@@ -8,8 +8,8 @@
     "baseline_global_efficiency": 0.5601,
     "targeted_retained_efficiency_k30": 0.8608,
     "targeted_loss_from_baseline_ratio_k30": 0.1392,
-    "random_retained_efficiency_k30": 0.9912,
-    "random_mean_loss_from_baseline_ratio_k30": 0.0088,
+    "random_retained_efficiency_k30": 0.9917,
+    "random_mean_loss_from_baseline_ratio_k30": 0.0083,
     "removal_fraction_k30": 0.2027
   },
   "random_comparator_draws": 200,
@@ -19,13 +19,14 @@
     "targeted_below_random_mean_at_all_levels": true,
     "targeted_below_random_p05_at_all_levels": true,
     "targeted_random_gap_strictly_widens": true,
-    "gap_vs_random_mean_k5": 0.0238,
-    "gap_vs_random_mean_k30": 0.1304,
+    "gap_vs_random_mean_k5": 0.0243,
+    "gap_vs_random_mean_k30": 0.1309,
     "gap_growth_k5_to_k30": 0.1066
   },
-  "finding": "Static degree-targeted actor loss reduces retained global efficiency much more strongly than same-count random loss under the released Enron communication-network projection. At 30 removals, targeted retained efficiency is 0.8608 versus a random mean of 0.9912, and the targeted result remains below the random 5th-percentile order-statistic bound.",
+  "finding": "Static degree-targeted actor loss reduces retained global efficiency much more strongly than same-count comparator loss under the released Enron communication-network projection. At 30 removals, targeted retained efficiency is 0.8608 versus a comparator mean of 0.9917, and the targeted result remains below the comparator 5th-percentile order-statistic bound.",
   "source": "email-enron temporal hypergraph (XGI / Zenodo), version v0.1",
   "retrieved": "2026-09-25",
   "release_version": "1.1.0",
-  "interpretation_boundary": "Email connectivity is a proxy for potential structural information access, not direct evidence of tacit knowledge, expertise, employee value, learning effectiveness, or causal organizational performance."
+  "interpretation_boundary": "Email connectivity is a proxy for potential structural information access, not direct evidence of tacit knowledge, expertise, employee value, learning effectiveness, or causal organizational performance.",
+  "random_comparator_method": "SHA-256 rank sampling by seed, removal level, draw index, and node ID"
 }
