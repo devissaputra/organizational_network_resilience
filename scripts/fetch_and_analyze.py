@@ -167,10 +167,10 @@ def analyze(data):
         },
         "finding": (
             "Static degree-targeted actor loss reduces retained global efficiency "
-            "much more strongly than same-count random loss under the released "
+            "much more strongly than same-count comparator loss under the released "
             "Enron communication-network projection. At 30 removals, targeted "
-            "retained efficiency is 0.8608 versus a random mean of 0.9917, and "
-            "the targeted result remains below the random 5th-percentile "
+            "retained efficiency is 0.8608 versus a comparator mean of 0.9917, and "
+            "the targeted result remains below the comparator 5th-percentile "
             "order-statistic bound."
         ),
         "source": "email-enron temporal hypergraph (XGI / Zenodo), version v0.1",
