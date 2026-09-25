@@ -1,26 +1,53 @@
-# Originality Map Against the Current 40-Repository Portfolio
+# Originality and Portfolio Positioning
 
-## Closest existing repositories
-- `competency_gap_intelligence`
-- `training_transfer_analytics`
+## Portfolio track
+
+Learning & Development Research.
+
+## Research position
+
+Organizational Learning / Knowledge Continuity / Organizational Network Analysis.
+
+## What this repository is
+
+A reproducible secondary network stress test asking how structural communication accessibility responds to static loss of highly connected actors.
+
+## What it is not
+
+It is not:
+
+- an employee knowledge score;
+- a key-person ranking product;
+- a causal turnover study;
+- an expertise recommender;
+- a training effectiveness model;
+- a succession recommendation engine.
+
+## Distinctive contribution
+
+The repository combines:
+
+1. a real organizational communication source;
+2. explicit hypergraph provenance;
+3. transparent simple-graph projection;
+4. degree-targeted actor-loss stress testing;
+5. a seeded same-count random comparator;
+6. a complete five-level resilience curve;
+7. lower-tail comparator diagnostics;
+8. an explicit bridge to L&D knowledge-continuity questions;
+9. strong construct and external-validity boundaries.
+
+## Nearest portfolio neighbors
+
+- `training_investment_capacity`
+- `technology_skill_renewal_pressure`
+- `training_evidence_decision_value`
 - `workplace_learning_recommender`
 
-## Why this empirical bundle is distinct
-This empirical study operates at the organizational communication-network level and measures structural resilience to key-actor loss. It neither infers individual competency gaps nor estimates training transfer or recommends learning content.
+This repository is distinct in unit of analysis, source, method family, and organizational-network decision problem.
 
-## Five-axis distinctness test
-A new bundle passes only if it differs from its nearest portfolio neighbors on at least four of these five dimensions:
+## Meaning of originality
 
-1. **Unit of analysis**
-2. **Research question / decision problem**
-3. **Empirical source**
-4. **Method family**
-5. **Primary output artifact / inference**
+Originality here means a materially distinct research artifact within the portfolio.
 
-This bundle passes that test.
-
-## Existing substantive portfolio reviewed
-`student_grade_regression`, `classification_calibration`, `imbalanced_learning`, `pca_clustering`, `anomaly_detection`, `mlp_neural_network`, `cnn_image_classification`, `lstm_time_series`, `explainable_ai`, `mini_transformers_sequences`, `genai_learning_observatory`, `teacher_ai_assessment`, `privacy_preserving_learning_analytics`, `multimodal_self_regulation_lab`, `learning_design_process_mining`, `hybrid_intelligence_lab`, `explanation_faithfulness_aied`, `collaborative_reasoning_analytics`, `cognitive_offloading_analytics`, `classroom_discourse_intelligence`, `adaptive_socratic_tutor`, `knowledge_tracing_benchmark`, `instructor_insight_engine`, `learner_state_sequence_model`, `multimodal_learning_analytics`, `constructive_alignment_auditor`, `assessment_design_lab`, `learning_experiment_platform`, `lesson_design_agent`, `causal_learning_analytics`, `learner_agency_simulator`, `competency_gap_intelligence`, `workplace_learning_recommender`, `training_transfer_analytics`, `engagement_early_warning`, `curriculum_knowledge_graph`, `self_regulated_learning_copilot`, `feedback_quality_evaluator`, `misconception_aware_rag`, `responsible_aied_evaluation`
-
-## Meaning of “original”
-Originality here means a materially distinct research contribution **inside this portfolio**. It does not claim that the academic topic has never been studied. The bundle cites the public data and prior research rather than presenting established methods as inventions.
+It does not claim that organizational network analysis, key-actor vulnerability, global efficiency, or Enron email analysis are new concepts.
