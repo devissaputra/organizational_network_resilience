@@ -106,6 +106,9 @@ def test_summary_random_design_is_pinned():
 
     assert summary["random_comparator_draws"] == 200
     assert summary["seed"] == 20260925
+    assert summary["random_comparator_method"] == (
+        "SHA-256 rank sampling by seed, removal level, draw index, and node ID"
+    )
     assert summary["robustness_diagnostics"][
         "targeted_below_random_p05_at_all_levels"
     ] is True
