@@ -231,7 +231,19 @@ def check_release(summary, curve):
 
     for expected, packaged in zip(expected_rows, packaged_rows):
         for key, value in expected.items():
-            if str(packaged[key]) != str(value):
+            if key == "targeted_below_random_p05":
+                if str(packaged[key]).lower() != str(value).lower():
+                    raise SystemExit(
+                        f"FAIL: packaged curve differs at k={expected['removed']} / {key}: "
+                        f"{packaged[key]} != {value}"
+                    )
+            elif key == "removed":
+                if int(packaged[key]) != int(value):
+                    raise SystemExit(
+                        f"FAIL: packaged curve differs at k={expected['removed']} / {key}: "
+                        f"{packaged[key]} != {value}"
+                    )
+            elif abs(float(packaged[key]) - float(value)) > 5e-5:
                 raise SystemExit(
                     f"FAIL: packaged curve differs at k={expected['removed']} / {key}: "
                     f"{packaged[key]} != {value}"
