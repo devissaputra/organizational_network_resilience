@@ -1,0 +1,15 @@
+{
+  "study_title": "Organizational Communication Resilience Under Key-Actor Loss",
+  "design": "Secondary observational network analysis of the Enron temporal email hypergraph",
+  "retrieved_for_analysis": "2026-09-25",
+  "source_name": "email-enron temporal hypergraph (XGI / Zenodo)",
+  "source_page": "https://zenodo.org/records/21909507",
+  "direct_data_url": "https://zenodo.org/records/21909507/files/email-enron.json",
+  "doi": "10.5281/zenodo.21909507",
+  "license_note": "Open Zenodo dataset record; cite the dataset and respect source-record reuse terms.",
+  "raw_data_redistributed": false,
+  "derived_empirical_results_in_repository": true,
+  "claim_boundary": "Email connectivity is a proxy for potential information access, not a direct measure of tacit knowledge, expertise, performance, or causal knowledge transfer. The Enron setting also limits external validity.",
+  "repository_slug": "organizational_network_resilience",
+  "supersedes_prototype_slug": "knowledge_continuity_resilience"
+}

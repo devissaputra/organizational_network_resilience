@@ -1,0 +1,15 @@
+{
+  "study": "Organizational Communication Resilience Under Key-Actor Loss",
+  "headline_metrics": {
+    "nodes": 148,
+    "hyperedges": 10885,
+    "incidences": 26914,
+    "projection_edges": 2583,
+    "baseline_global_efficiency": 0.5601,
+    "targeted_retained_efficiency_k30": 0.8608,
+    "random_retained_efficiency_k30": 0.9912
+  },
+  "finding": "Targeted removal progressively lowers normalized global efficiency while random removal of the same number of employees leaves mean efficiency close to baseline. At 30 removals, targeted retained efficiency is 0.8608 versus 0.9912 under random removal.",
+  "source": "email-enron temporal hypergraph (XGI / Zenodo)",
+  "retrieved": "2026-09-25"
+}

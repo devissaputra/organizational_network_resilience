@@ -1,0 +1,10 @@
+[project]
+name = "organizational-network-resilience"
+version = "1.0.0"
+description = "Empirical communication-network resilience study using the Enron temporal hypergraph."
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
