@@ -3,3 +3,13 @@ test:
 
 demo:
 	python run_demo.py
+
+figures:
+	python scripts/generate_figures.py
+
+source-check:
+	python scripts/fetch_and_analyze.py --check
+
+rebuild:
+	python scripts/fetch_and_analyze.py --write
+	python scripts/generate_figures.py
