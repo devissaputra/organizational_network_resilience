@@ -7,17 +7,25 @@
     "projection_edges": 2583,
     "baseline_global_efficiency": 0.5601,
     "targeted_retained_efficiency_k30": 0.8608,
-    "random_retained_efficiency_k30": 0.9912
+    "targeted_loss_from_baseline_ratio_k30": 0.1392,
+    "random_retained_efficiency_k30": 0.9912,
+    "random_mean_loss_from_baseline_ratio_k30": 0.0088,
+    "removal_fraction_k30": 0.2027
   },
   "random_comparator_draws": 200,
   "seed": 20260925,
   "robustness_diagnostics": {
+    "targeted_curve_strictly_decreases": true,
+    "targeted_below_random_mean_at_all_levels": true,
     "targeted_below_random_p05_at_all_levels": true,
+    "targeted_random_gap_strictly_widens": true,
     "gap_vs_random_mean_k5": 0.0238,
     "gap_vs_random_mean_k30": 0.1304,
     "gap_growth_k5_to_k30": 0.1066
   },
-  "finding": "Targeted removal progressively lowers normalized global efficiency while same-count random removal leaves mean efficiency close to baseline. At 30 removals, targeted retained efficiency is 0.8608 versus 0.9912 under random removal.",
-  "source": "email-enron temporal hypergraph (XGI / Zenodo)",
-  "retrieved": "2026-09-25"
+  "finding": "Static degree-targeted actor loss reduces retained global efficiency much more strongly than same-count random loss under the released Enron communication-network projection. At 30 removals, targeted retained efficiency is 0.8608 versus a random mean of 0.9912, and the targeted result remains below the random 5th-percentile order-statistic bound.",
+  "source": "email-enron temporal hypergraph (XGI / Zenodo), version v0.1",
+  "retrieved": "2026-09-25",
+  "release_version": "1.1.0",
+  "interpretation_boundary": "Email connectivity is a proxy for potential structural information access, not direct evidence of tacit knowledge, expertise, employee value, learning effectiveness, or causal organizational performance."
 }
