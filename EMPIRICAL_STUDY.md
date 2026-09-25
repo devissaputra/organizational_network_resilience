@@ -83,7 +83,8 @@ This is a static ranking. Actors are not re-ranked after each removal.
 
 At each k:
 
-- draw 200 same-count random removal sets;
+- generate 200 deterministic pseudo-random same-count comparison sets;
+- rank nodes for each draw by SHA-256 of seed, k, draw index, and node ID;
 - seed = 20260925;
 - calculate retained efficiency for every draw;
 - sort the 200 results;
@@ -156,3 +157,8 @@ The release uses:
 - one set of five stress levels.
 
 Alternative specifications are future sensitivity extensions, not hidden completed analyses.
+
+
+## Comparator reproducibility correction
+
+The initial release mechanism used Python `random.sample` with a fixed seed. Strict source reconstruction showed that this did not provide a sufficiently stable release contract for the exact comparator sets across runtimes. Version 1.1 replaces it with SHA-256 rank sampling so the 200 comparison sets are deterministic for the released seed, removal level, draw index, and node IDs. The targeted curve is unchanged; all comparator-derived values were rebuilt from the pinned source.
