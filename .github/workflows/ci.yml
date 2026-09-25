@@ -26,13 +26,16 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install test dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Run tests
+      - name: Run scientific tests
         run: pytest -q
 
       - name: Validate packaged research bundle
         run: python run_demo.py
+
+      - name: Regenerate scientific figures
+        run: python scripts/generate_figures.py --out-dir /tmp/resilience_figures
