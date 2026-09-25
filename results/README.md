@@ -17,10 +17,10 @@ At k = 30:
 - 30 of 148 actors removed, or 20.3%;
 - targeted retained efficiency = 0.8608;
 - targeted loss from intact ratio = 0.1392;
-- random mean retained efficiency = 0.9912;
-- random mean loss from intact ratio = 0.0088;
-- random p05 = 0.9606;
-- targeted-versus-random mean gap = 0.1304.
+- random mean retained efficiency = 0.9917;
+- random mean loss from intact ratio = 0.0083;
+- random p05 = 0.9572;
+- targeted-versus-random mean gap = 0.1309.
 
 ## Curve interpretation
 
