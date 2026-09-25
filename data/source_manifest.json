@@ -40,5 +40,5 @@
   "repository_slug": "organizational_network_resilience",
   "portfolio_track": "Learning & Development Research",
   "release_version": "1.1.0",
-  "scientific_correction": "Version 1.1 replaces runtime-dependent Python random.sample comparator draws with a SHA-256-ranked deterministic pseudo-random comparator after strict source rebuild QA exposed cross-runtime drift in the previously packaged random means."
+  "scientific_correction": "Version 1.1 replaces runtime-dependent Python random.sample comparator draws with a SHA-256-ranked deterministic pseudo-random comparator after strict source rebuild QA exposed cross-runtime drift in the previously packaged random-comparator means."
 }
