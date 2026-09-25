@@ -1,19 +1,35 @@
 {
   "study_title": "Organizational Communication Resilience Under Key-Actor Loss",
-  "design": "Secondary observational network analysis of the Enron temporal email hypergraph",
+  "design": "Secondary observational network stress test of the Enron temporal email hypergraph",
   "retrieved_for_analysis": "2026-09-25",
   "source_name": "email-enron temporal hypergraph (XGI / Zenodo)",
   "dataset_version": "v0.1",
   "dataset_published": "2026-08-12",
   "source_page": "https://zenodo.org/records/21909507",
-  "direct_data_url": "https://zenodo.org/records/21909507/files/email-enron.json",
+  "direct_data_url": "https://zenodo.org/records/21909507/files/email-enron.json?download=1",
   "doi": "10.5281/zenodo.21909507",
   "source_file": "email-enron.json",
   "source_file_md5": "3666af1fc5a190d93f7fd98cff58e283",
-  "license_note": "Zenodo marks the record as Open, but the retrieved record does not display a specific license in its Rights section. This repository therefore does not redistribute the raw dataset; users should follow the Zenodo record and original-source terms.",
+  "source_nodes": 148,
+  "source_hyperedges": 10885,
+  "source_component_sizes": {
+    "143": 1,
+    "1": 5
+  },
+  "projection_note": "Each email hyperedge is projected to all unique undirected pairwise co-participation ties. Repeated event members are deduplicated and repeated ties are collapsed in the released simple graph.",
+  "primary_metric": "Global efficiency among surviving nodes, normalized by intact-network global efficiency.",
+  "targeting_rule": "Static degree ranking computed once on the intact projection.",
+  "random_comparator": {
+    "draws_per_level": 200,
+    "seed": 20260925,
+    "removal_levels": [5, 10, 15, 20, 30],
+    "quantile_note": "p05 and p95 are released empirical order-statistic diagnostics from sorted random draws."
+  },
+  "license_note": "Zenodo marks the record as Open, but the displayed Rights section does not show a specific license value. This repository therefore does not redistribute the raw dataset; users should follow the Zenodo record and original-source terms.",
   "raw_data_redistributed": false,
   "derived_empirical_results_in_repository": true,
-  "claim_boundary": "Email connectivity is a proxy for potential information access, not a direct measure of tacit knowledge, expertise, performance, or causal knowledge transfer. The Enron setting also limits external validity.",
+  "claim_boundary": "Email connectivity is a proxy for potential structural information access, not direct evidence of tacit knowledge, expertise, employee value, learning effectiveness, or causal organizational performance. The historical Enron setting also limits external validity.",
   "repository_slug": "organizational_network_resilience",
-  "supersedes_prototype_slug": "knowledge_continuity_resilience"
+  "portfolio_track": "Learning & Development Research",
+  "release_version": "1.1.0"
 }
