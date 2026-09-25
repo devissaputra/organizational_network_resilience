@@ -5,7 +5,6 @@ import argparse
 import csv
 import hashlib
 import json
-import random
 import urllib.request
 from pathlib import Path
 import sys
@@ -46,6 +45,17 @@ def fetch_source():
     return json.loads(payload), actual_md5
 
 
+def deterministic_sample(node_ids, k, draw_index):
+    """Select a version-stable pseudo-random subset using SHA-256 ranking."""
+    ranked = sorted(
+        node_ids,
+        key=lambda node: hashlib.sha256(
+            f"{SEED}|{k}|{draw_index}|{node}".encode("utf-8")
+        ).digest(),
+    )
+    return ranked[:k]
+
+
 def analyze(data):
     ids = [str(item["node"]) for item in data["nodes"]]
 
@@ -65,7 +75,6 @@ def analyze(data):
     )
 
     baseline_efficiency = global_efficiency(ids, adjacency)
-    rng = random.Random(SEED)
     curve = []
 
     for k in REMOVAL_LEVELS:
@@ -75,9 +84,13 @@ def analyze(data):
         )
 
         random_values = sorted(
-            global_efficiency(ids, adjacency, set(rng.sample(ids, k)))
+            global_efficiency(
+                ids,
+                adjacency,
+                set(deterministic_sample(ids, k, draw_index)),
+            )
             / baseline_efficiency
-            for _ in range(RANDOM_DRAWS)
+            for draw_index in range(RANDOM_DRAWS)
         )
 
         random_mean = sum(random_values) / len(random_values)
@@ -127,6 +140,7 @@ def analyze(data):
         },
         "random_comparator_draws": RANDOM_DRAWS,
         "seed": SEED,
+        "random_comparator_method": "SHA-256 rank sampling by seed, removal level, draw index, and node ID",
         "robustness_diagnostics": {
             "targeted_curve_strictly_decreases": all(
                 curve[i]["targeted_retained_efficiency"]
@@ -281,19 +295,15 @@ def main():
     if args.write:
         write_outputs(summary, curve)
 
+    rebuilt = {
+        "source_md5": md5,
+        "summary": summary,
+        "curve": rounded_curve(curve),
+    }
+    print(json.dumps(rebuilt, indent=2))
+
     if args.check:
         check_release(summary, curve)
-
-    print(
-        json.dumps(
-            {
-                "source_md5": md5,
-                "summary": summary,
-                "curve": rounded_curve(curve),
-            },
-            indent=2,
-        )
-    )
 
 
 if __name__ == "__main__":
