@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: empirical-rebuild-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   rebuild:
     runs-on: ubuntu-latest
