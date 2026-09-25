@@ -1,115 +1,191 @@
 # Organizational Communication Resilience Under Key-Actor Loss
 
 [![CI](https://github.com/devissaputra/organizational_network_resilience/actions/workflows/ci.yml/badge.svg)](https://github.com/devissaputra/organizational_network_resilience/actions/workflows/ci.yml)
+[![Zenodo empirical rebuild](https://github.com/devissaputra/organizational_network_resilience/actions/workflows/empirical-rebuild.yml/badge.svg)](https://github.com/devissaputra/organizational_network_resilience/actions/workflows/empirical-rebuild.yml)
 
-> **Empirical Research Bundle** · **Portfolio Track: Learning & Development Research** · Organizational Learning / Knowledge Resilience / Network Analysis
+> **Learning & Development Research Package** · Organizational Learning · Knowledge Continuity · Organizational Network Analysis
 
-Empirical Enron communication-network resilience study comparing degree-targeted key-actor loss with same-count random removal.
+A reproducible stress test of how much structural communication accessibility is lost when highly connected actors are removed from the Enron email network compared with same-count random actor loss.
 
-![Empirical workflow](assets/architecture.svg)
+![Resilience stress test](assets/research_design.svg)
 
-## Study status
+## Start here
 
-**Completed secondary empirical analysis.** Reported findings were calculated from the pinned public source on 25 September 2026. The rebuild script contains **no synthetic fallback** and verifies the source file checksum before analysis. Raw source data are not republished; `data/source_manifest.json` records provenance, version, checksum, reuse notes, and the claim boundary.
+- [Scientific report](REPORT.md)
+- [Empirical study protocol](EMPIRICAL_STUDY.md)
+- [Paper blueprint](docs/paper_blueprint.md)
+- [Analysis plan](docs/analysis_plan.md)
+- [Research design](docs/research_design.md)
+- [Reproducibility guide](REPRODUCIBILITY.md)
+- [Data provenance](data/README.md)
+- [Final QA evidence](QA_REPORT.md)
 
 ## Research question
 
-> How resilient is potential organizational information access to the loss of highly connected employees compared with random employee loss?
+> How resilient is potential organizational information access to the loss of highly connected communication actors compared with random actor loss?
 
-## Design
+## Source
 
-- **Design:** Secondary observational network analysis of the Enron temporal email hypergraph
-- **Source:** email-enron temporal hypergraph (XGI / Zenodo)
-- **Dataset version:** v0.1
-- **Source page:** https://zenodo.org/records/21909507
-- **DOI:** 10.5281/zenodo.21909507
-- **Pinned file MD5:** `3666af1fc5a190d93f7fd98cff58e283`
-- **Retrieval / analysis date:** 2026-09-25
-- **Reuse note:** Zenodo marks the record as Open, but the retrieved Rights section does not display a specific license. This repository therefore does not redistribute the raw file; users should follow the Zenodo record and original-source terms.
+| Item | Released value |
+|---|---|
+| Dataset | email-enron temporal hypergraph |
+| Curator | XGI data collection |
+| Zenodo DOI | 10.5281/zenodo.21909507 |
+| Version | v0.1 |
+| Nodes | 148 |
+| Timestamped hyperedges | 10,885 |
+| Source file | `email-enron.json` |
+| MD5 | `3666af1fc5a190d93f7fd98cff58e283` |
 
-## Hypotheses
+The source represents email addresses and timestamped email events among a core Enron employee set.
 
-1. H1: removing high-degree actors reduces normalized global efficiency faster than removing the same number of randomly selected actors.
-2. H2: the targeted-versus-random resilience gap widens as more key actors are removed.
+Email communication is used here as evidence of **potential structural information access**. It is not treated as direct measurement of knowledge, expertise, trust, or performance.
 
-## Empirical method
+## Empirical design
 
-Each email hyperedge is projected into an undirected employee co-participation graph. The analysis computes baseline global efficiency, ranks actors by projection degree, and compares degree-targeted removal with 200 seeded random removals at k = 5, 10, 15, 20, and 30. The primary outcome is retained global efficiency relative to the intact network.
+The study:
 
-**Metric note:** global efficiency is recomputed on surviving-node pairs and then divided by the intact-network value. A retained-efficiency ratio slightly above 1 can occur when removing peripheral nodes shortens average paths among survivors. It is not an organizational performance score or a bounded survival fraction.
+1. projects each email hyperedge into an undirected simple co-participation graph;
+2. computes baseline global efficiency;
+3. ranks actors once by degree in the intact graph;
+4. removes the top 5, 10, 15, 20, and 30 actors;
+5. compares each targeted result with 200 seeded same-count random removals;
+6. reports retained efficiency and the random 5th to 95th percentile diagnostic band.
 
-![Method](assets/method.svg)
+![Analysis workflow](assets/method.svg)
 
-## Headline empirical finding
+## Network baseline
 
-Targeted removal progressively lowers normalized global efficiency while same-count random removal leaves mean efficiency close to baseline. At 30 removals, targeted retained efficiency is **0.8608** versus **0.9912** under random removal.
+- nodes: **148**
+- hyperedges: **10,885**
+- incidences: **26,914**
+- projection edges: **2,583**
+- baseline global efficiency: **0.5601**
 
-### Headline metrics
+## Main result
 
-- **nodes:** 148
-- **hyperedges:** 10,885
-- **incidences:** 26,914
-- **projection edges:** 2,583
-- **baseline global efficiency:** 0.5601
-- **targeted retained efficiency, k=30:** 0.8608
-- **random mean retained efficiency, k=30:** 0.9912
+| Actors removed | Removed share | Targeted retained efficiency | Random mean | Random p05 | Random p95 | Gap |
+|---:|---:|---:|---:|---:|---:|---:|
+| 5 | 3.4% | 0.9735 | 0.9973 | 0.9860 | 1.0101 | 0.0238 |
+| 10 | 6.8% | 0.9465 | 0.9970 | 0.9808 | 1.0139 | 0.0505 |
+| 15 | 10.1% | 0.9245 | 0.9968 | 0.9761 | 1.0221 | 0.0723 |
+| 20 | 13.5% | 0.8986 | 0.9960 | 0.9710 | 1.0197 | 0.0974 |
+| 30 | 20.3% | 0.8608 | 0.9912 | 0.9606 | 1.0288 | 0.1304 |
 
-### Distributional robustness diagnostic
+Targeted retained efficiency decreases at every tested level:
 
-The released random comparator contains 200 seeded draws at every removal level. The targeted retained-efficiency value is **below the random 5th percentile at all five tested k values**. The targeted-versus-random mean gap increases from **0.0238 at k=5** to **0.1304 at k=30**.
+```text
+0.9735 → 0.9465 → 0.9245 → 0.8986 → 0.8608
+```
 
-This is a descriptive distributional diagnostic, not a causal estimate and not a substitute for a formal inferential design. The released study uses **global efficiency as its primary resilience operationalization**; alternative centrality rules, adaptive re-ranking, directed/weighted projections, and additional resilience outcomes remain extensions rather than hidden analyses.
+Meanwhile, the random mean remains close to baseline.
 
-The complete five-level table is in `data/derived/primary_results.csv` and documented in `docs/data_dictionary.md`.
+At **k = 30**, targeted actor loss leaves **0.8608** retained efficiency compared with **0.9912** under the random mean.
 
-![Research evidence](assets/research_design.svg)
+## Why the comparison is stronger than one curve
 
-## What this study can and cannot claim
+At every tested removal level, the targeted retained-efficiency result lies **below the random 5th-percentile order-statistic bound**.
 
-**Can claim:** the computations in this repository summarize the named, pinned public dataset under the documented operationalization.
+That means the targeted curve is not merely a little lower than the random average in the released simulations. It sits below the lower tail of the 200-draw random comparator at every stress level.
 
-**Cannot claim:** email connectivity directly measures tacit knowledge, expertise, performance, or causal knowledge transfer. The Enron setting limits external validity, and one graph metric does not exhaust the broader construct of organizational resilience.
+This remains descriptive evidence, not a formal causal or significance result.
 
-![Finding and boundary](assets/evaluation.svg)
+## L&D and knowledge continuity interpretation
+
+The practical value is diagnostic.
+
+A communication network that is structurally dependent on a small set of central actors can motivate closer examination of:
+
+- succession coverage;
+- cross-training;
+- mentoring redundancy;
+- documentation;
+- communities of practice;
+- access to expertise during onboarding;
+- boundary-spanning roles;
+- communication overload.
+
+The analysis does **not** identify who possesses irreplaceable knowledge.
+
+It identifies where communication structure is unusually sensitive to actor loss under the released stress test.
+
+## Metric caution
+
+Retained efficiency is:
+
+```text
+efficiency after removal / intact-network efficiency
+```
+
+It is recomputed among surviving nodes.
+
+The ratio can be slightly above 1 when removing peripheral nodes shortens average paths among survivors. It is therefore not a bounded survival fraction or performance percentage.
+
+## What this study contributes
+
+The contribution is not a new network metric.
+
+It is a reproducible L&D-facing framework that combines:
+
+- a real organizational communication dataset;
+- explicit source provenance;
+- a transparent projection rule;
+- static key-actor stress testing;
+- a seeded random comparator;
+- a complete five-level resilience curve;
+- lower-tail diagnostics;
+- bounded knowledge-continuity interpretation.
+
+## Claim boundary
+
+**Supported:** the released Enron communication projection is structurally more vulnerable to static degree-targeted removal than to same-count random removal under global efficiency.
+
+**Not supported:** direct knowledge measurement, causal knowledge loss, individual employee value, organizational performance loss, optimal succession choices, or generalization to every workplace.
+
+![Evidence boundary](assets/evaluation.svg)
 
 ## Reproduce
 
-Offline verification of packaged empirical results:
+Offline:
 
 ```bash
 python -m pip install -r requirements.txt
 pytest -q
 python run_demo.py
+python scripts/generate_figures.py
 ```
 
-Recompute from the pinned public source after checksum verification:
+Source verification:
 
 ```bash
-python scripts/fetch_and_analyze.py
+python scripts/fetch_and_analyze.py --check
 ```
 
-Regenerate the packaged CSV and JSON outputs:
+Regenerate release evidence:
 
 ```bash
 python scripts/fetch_and_analyze.py --write
+python scripts/generate_figures.py
 ```
 
-GitHub Actions runs the offline test and bundle-validation suite on Python 3.10, 3.11, and 3.12.
+## Repository map
 
-## Research bundle contents
-
-- `README.md` — study overview and bounded findings
-- `EMPIRICAL_STUDY.md` — protocol, validity, and interpretation
-- `data/source_manifest.json` — pinned provenance, checksum, reuse note, and claim boundary
-- `data/derived/primary_results.csv` — complete five-level release curve and diagnostics
-- `results/empirical_summary.json` — machine-readable headline results
-- `scripts/fetch_and_analyze.py` — checksum-verified public-source rebuild
-- `research/model.py` — reusable study-specific analysis and validation functions
-- `tests/` — behavioral, numerical-consistency, and provenance tests
-- `.github/workflows/ci.yml` — automated CI
-- `docs/` — analysis plan, data dictionary, paper blueprint, references, originality map
-- `assets/` — four study-specific SVG figures
+- `REPORT.md`: scientific report
+- `EMPIRICAL_STUDY.md`: protocol and interpretation boundary
+- `docs/paper_blueprint.md`: manuscript structure
+- `docs/analysis_plan.md`: estimands and diagnostics
+- `docs/research_design.md`: network design decisions
+- `docs/data_dictionary.md`: evidence definitions
+- `data/source_manifest.json`: source identity and integrity
+- `data/derived/primary_results.csv`: complete stress-test curve
+- `results/empirical_summary.json`: machine-readable headline evidence
+- `research/model.py`: graph projection, efficiency, diagnostics, validation
+- `scripts/fetch_and_analyze.py`: public-source rebuild
+- `scripts/generate_figures.py`: reproducible scientific visuals
+- `tests/`: scientific and release invariants
 
 ## Research integrity
 
-This bundle distinguishes **source data**, **operationalization**, **result**, and **interpretation**. The analysis plan documents the released analysis; it is **not a preregistration**. Public data do not automatically validate a construct, so proxy, single-metric, and external-validity limits are explicit.
+This secondary analysis is not preregistered.
+
+The repository keeps the distinction between source data, graph operationalization, result, and L&D interpretation explicit.
