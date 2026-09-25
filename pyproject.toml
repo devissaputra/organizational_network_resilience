@@ -1,7 +1,7 @@
 [project]
 name = "organizational-network-resilience"
-version = "1.0.0"
-description = "Empirical communication-network resilience study using the Enron temporal hypergraph."
+version = "1.1.0"
+description = "L&D research package for communication-network resilience and structural knowledge-continuity risk."
 requires-python = ">=3.10"
 dependencies = []
 
