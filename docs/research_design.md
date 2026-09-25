@@ -56,7 +56,7 @@ Rank nodes once by intact-network degree and remove the top k.
 
 ### Random benchmark
 
-Compare with 200 seeded same-count random removal sets at each k.
+Compare with 200 version-stable deterministic pseudo-random same-count comparator sets at each k.
 
 ### Stress levels
 
