@@ -46,11 +46,11 @@ Targeted retained efficiency:
 
 Random mean retained efficiency:
 
-- k=5: 0.9973
+- k=5: 0.9978
 - k=10: 0.9970
-- k=15: 0.9968
-- k=20: 0.9960
-- k=30: 0.9912
+- k=15: 0.9971
+- k=20: 0.9954
+- k=30: 0.9917
 
 ## Scientific invariants
 
@@ -61,7 +61,7 @@ The released package verifies that:
 - targeted retained efficiency is below random p05 at every tested k;
 - the targeted-versus-random mean gap widens at every tested k;
 - the random p05, mean, and p95 ordering is valid;
-- the final gap is 0.1304;
+- the final gap is 0.1309;
 - all CSV and JSON headline values agree.
 
 ## Scientific presentation improvements
