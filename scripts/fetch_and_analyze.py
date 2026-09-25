@@ -8,10 +8,13 @@ import json
 import random
 import urllib.request
 from pathlib import Path
-
-from research.model import global_efficiency, project_hyperedges
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from research.model import global_efficiency, project_hyperedges
 MANIFEST_PATH = ROOT / "data/source_manifest.json"
 CURVE_PATH = ROOT / "data/derived/primary_results.csv"
 SUMMARY_PATH = ROOT / "results/empirical_summary.json"
