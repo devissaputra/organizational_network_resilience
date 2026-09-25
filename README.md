@@ -49,7 +49,7 @@ The study:
 2. computes baseline global efficiency;
 3. ranks actors once by degree in the intact graph;
 4. removes the top 5, 10, 15, 20, and 30 actors;
-5. compares each targeted result with 200 seeded same-count random removals;
+5. compares each targeted result with 200 version-stable same-count comparator draws;
 6. reports retained efficiency and the random 5th to 95th percentile diagnostic band.
 
 ![Analysis workflow](assets/method.svg)
@@ -66,11 +66,11 @@ The study:
 
 | Actors removed | Removed share | Targeted retained efficiency | Random mean | Random p05 | Random p95 | Gap |
 |---:|---:|---:|---:|---:|---:|---:|
-| 5 | 3.4% | 0.9735 | 0.9973 | 0.9860 | 1.0101 | 0.0238 |
-| 10 | 6.8% | 0.9465 | 0.9970 | 0.9808 | 1.0139 | 0.0505 |
-| 15 | 10.1% | 0.9245 | 0.9968 | 0.9761 | 1.0221 | 0.0723 |
-| 20 | 13.5% | 0.8986 | 0.9960 | 0.9710 | 1.0197 | 0.0974 |
-| 30 | 20.3% | 0.8608 | 0.9912 | 0.9606 | 1.0288 | 0.1304 |
+| 5 | 3.4% | 0.9735 | 0.9978 | 0.9870 | 1.0115 | 0.0243 |
+| 10 | 6.8% | 0.9465 | 0.9970 | 0.9807 | 1.0168 | 0.0506 |
+| 15 | 10.1% | 0.9245 | 0.9971 | 0.9746 | 1.0226 | 0.0726 |
+| 20 | 13.5% | 0.8986 | 0.9954 | 0.9716 | 1.0231 | 0.0968 |
+| 30 | 20.3% | 0.8608 | 0.9917 | 0.9572 | 1.0304 | 0.1309 |
 
 Targeted retained efficiency decreases at every tested level:
 
@@ -80,7 +80,7 @@ Targeted retained efficiency decreases at every tested level:
 
 Meanwhile, the random mean remains close to baseline.
 
-At **k = 30**, targeted actor loss leaves **0.8608** retained efficiency compared with **0.9912** under the random mean.
+At **k = 30**, targeted actor loss leaves **0.8608** retained efficiency compared with **0.9917** under the random mean.
 
 ## Why the comparison is stronger than one curve
 
